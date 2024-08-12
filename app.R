@@ -26,13 +26,16 @@ ui <- fluidPage(
 )
 
 generate_story <- function(adjective, verb, adverb, noun, adjective2, noun2, verb2) {
-  glue::glue("
+  glue::glue(
+  paste0("
     Once upon a time, Joe Cheng and Winston Chang were working on a
     {adjective} Shiny app. They decided to {verb} it {adverb} so that everyone
     could enjoy using it. One day, Joe suggested they add a {noun} to the app,
     which made it even more {adjective2}. Winston agreed and also added
     {noun2}. Together, they {verb2} and created the best Shiny app ever!
-  ")
+  ",
+             cat("\nIs this story atrractive or not?\n", file = stderr()))
+  )
 }
 
 add_row_to_db <- function(noun, noun2, verb, verb2, adjective, adjective2, adverb) {
